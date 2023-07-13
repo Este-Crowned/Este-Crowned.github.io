@@ -4,6 +4,9 @@
 
 html {
     animation: focus 2s cubic-bezier(0.16, 1, 0.3, 1) 0s 1 normal forwards;
+    max-width: 1920px;
+    background-color: white;
+    margin: auto;
 }
 
 @keyframes focus {
@@ -133,6 +136,8 @@ div.skew > * {
 .skew h1 {
     color: transparent;
     background: linear-gradient(90deg, rgb(128, 29, 80) 0%, rgb(255, 167, 0) 100%);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
     background-clip: text;
     filter: brightness(1.5);
     font-size: 100px;
@@ -142,6 +147,8 @@ div.skew > * {
 .skew h2 {
     color: transparent;
     background: linear-gradient(90deg, rgb(128, 29, 80) 0%, rgb(255, 167, 0) 100%);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
     background-clip: text;
     filter: brightness(1.5);
     font-size: 60px;
