@@ -1,0 +1,180 @@
+*{
+    margin: 0;
+}
+
+html {
+    animation: focus 2s cubic-bezier(0.16, 1, 0.3, 1) 0s 1 normal forwards;
+}
+
+@keyframes focus {
+    0% {
+        filter: blur(100px) brightness(5);
+    }
+    100% {
+        filter: blur(0px) brightness(1);
+    }
+}
+
+h1 {
+    padding-top: 1em;
+}
+
+.part1 {
+    background-image: url("./res/near-end.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.part2 {
+    background-image: url("./res/lights-industry.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.wt {
+    color : white;
+}
+
+.wt h1 {
+    text-shadow: 2px 2px 15px rgb(0, 0, 0);
+}
+
+.wt:not(.intro) p {
+    text-shadow: 2px 2px 7px rgb(0, 0, 0);
+}
+
+.intro {
+    text-align: center;
+    height: 400px;
+    text-shadow: 2px 2px 15px rgb(0, 0, 0);
+}
+
+.intro b, h1 {
+    font-size: 60px;
+}
+
+.intro p {
+    font-size: 40px;
+    margin: 0;
+    position: relative;
+    animation: wave 5s ease-in-out infinite alternate both;
+}
+
+h1:not(div.skew h1) {
+    animation: titles 3s ease-in-out infinite alternate both;
+}
+
+.subinter {
+    margin-top:384px;
+}
+
+@keyframes wave {
+    0% {transform: translate(0, 115px);}
+    100% {transform: translate(0, 155px);}
+}
+
+@keyframes titles {
+    0% {transform: translate(0, 0px);}
+    100% {transform: translate(0, 25px);}
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.cv p {
+    font-size: 20px;
+    width: 60%;
+    margin-top: 2em;
+    padding-bottom: 2em;
+    text-align: justify;
+    line-height: 150%;
+}
+
+.cv h1, .cv p, .skills h1, .skills p {
+    padding-left: 5%;
+}
+
+.skills p {
+    font-size: 20px;
+    width: 60%;
+    margin-top: 2em;
+    padding-bottom: 2em;
+    text-align: justify;
+    line-height: 150%;
+}
+
+.inter {
+    background-color: transparent;
+    margin-bottom: -384px;
+}
+
+div.skew {
+    transform: skewY(-9deg) translateY(-500px);
+    height:384px;
+    background-color: white;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+
+div.skew:not(.no-shadow) {
+    box-shadow: 0px 10px 15px hsla(0, 0%, 0%, 0.5);
+}
+
+div.skew > * {
+    transform: skewY(9deg);
+}
+
+.skew h1 {
+    color: transparent;
+    background: linear-gradient(90deg, rgb(128, 29, 80) 0%, rgb(255, 167, 0) 100%);
+    background-clip: text;
+    filter: brightness(1.5);
+    font-size: 100px;
+    text-shadow: 0 0 0px #fff;
+}
+
+.skew h2 {
+    color: transparent;
+    background: linear-gradient(90deg, rgb(128, 29, 80) 0%, rgb(255, 167, 0) 100%);
+    background-clip: text;
+    filter: brightness(1.5);
+    font-size: 60px;
+    text-shadow: 0 0 0px #fff;
+}
+
+@keyframes dig {
+    0% {text-shadow: 0 0 0px #fff;}
+    100% {text-shadow: 0 0 7px #ffffff00;}
+}
+
+div.intertop {
+    height: 300px;
+    z-index: 2;
+}
+
+div.interbot {
+    height: 300px;
+    z-index: 2;
+}
+
+.skills {
+    height: 128px;
+}
+
+div.wt p {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+div.wt p.active {
+    transform: translateY(0);
+    opacity: 1;
+}

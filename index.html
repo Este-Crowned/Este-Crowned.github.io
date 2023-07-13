@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <link rel="stylesheet" href="stylesheet.css">
+    </head>
+    <script type="text/javascript">
+        function reveal() {
+            var reveals = document.querySelectorAll("div.wt p");
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                } else {
+                    reveals[i].classList.remove("active");
+                }
+            }
+        }
+
+        function dig() {
+            let h1s = document.querySelectorAll(".skew h1");
+            for (let i of h1s) {
+                var windowHeight = window.innerHeight;
+                var elementTop = i.getBoundingClientRect().top;
+                var elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    i.style.animation = "dig 1s forwards ease-out";
+                    console.log("dig");
+                }
+            }
+        }
+
+        window.addEventListener("DOMContentLoaded", function() {
+            reveal();
+            dig()
+        });
+
+        window.addEventListener("scroll", reveal);
+        window.addEventListener("scroll", dig);
+    </script>
+    <body>
+       <div class="part1 intro wt">
+            <p>Je m'appelle <b>Este</b><br>je suis passionnée d' <b>illustration 3D</b></p>
+       </div>
+
+        <div class="inter">
+            <div class="intertop part1"></div>
+            <div class="interbot part1"></div>
+            <div class="skew"></div>
+        </div>
+
+       <div class="cv wt part1">
+        <h1>Passionnée</h1>
+        <p>A mes 9 ans, ma première expérience de jeux vidéo sur <b>New Super Mario Bros. Wii</b> me donne l'envie insatiable de <b>créer mes propres niveaux, power-ups, univers.</b> Mon père m'offre mon premier ordinateur, un <b>Rasperry Pi 3 doté d'1Go de RAM</b> à mon 11e anniversaire. J'y passe alors la majorité de mon temps libre pour apprendre en autodidacte <b>la programmation en Python, le montage photo et vidéo, ainsi que la 3D avec le logiciel Blender.</b> Depuis ce jour, je n'ai jamais arrêté de <b>créer.</b></p>
+       </div>
+
+        <div class="inter">
+            <div class="intertop part1"></div>
+            <div class="interbot part2"></div>
+            <div class="skew"></div>
+        </div>
+
+       <div class="skills wt part2">
+        <h1>Compétences</h1>
+       </div>
+
+        <div class="inter">
+            <div class="intertop part2"></div>
+            <div class="interbot"></div>
+            <div class="skew no-shadow">
+                <h1 class="part2">Blender</h1>
+            </div>
+        </div>
+        
+
+    </body>
+</html>
