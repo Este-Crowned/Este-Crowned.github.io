@@ -118,8 +118,8 @@ div.skew {
     transform: skewY(-9deg) translateY(-500px);
     height:384px;
     background-color: white;
-    z-index: 4;
     display: flex;
+    z-index: 4;
     flex-direction: column;
     justify-content:center;
     align-items: center;
@@ -144,7 +144,7 @@ div.skew > * {
     text-shadow: 0 0 0px #fff;
 }
 
-.skew h2 {
+.skew h2, .grad h2 {
     color: transparent;
     background: linear-gradient(90deg, rgb(128, 29, 80) 0%, rgb(255, 167, 0) 100%);
     -webkit-background-clip: text;
@@ -153,6 +153,8 @@ div.skew > * {
     filter: brightness(1.5);
     font-size: 60px;
     text-shadow: 0 0 0px #fff;
+    margin: 0.5em;
+    margin-top: 2em;
 }
 
 @keyframes dig {
@@ -174,14 +176,18 @@ div.interbot {
     height: 128px;
 }
 
-div.wt p {
+div.wt p, .grad > div {
     position: relative;
     transform: translateY(150px);
     opacity: 0;
     transition: 1s all ease;
 }
 
-div.wt p.active {
+div.wt p.active, .grad > div.active {
     transform: translateY(0);
     opacity: 1;
+}
+
+div img {
+    border-radius: 32px;
 }

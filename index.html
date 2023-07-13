@@ -6,8 +6,19 @@
     </head>
     <script type="text/javascript">
         function reveal() {
-            var reveals = document.querySelectorAll("div.wt p");
+            let reveals = document.querySelectorAll("div.wt p")
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
 
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                } else {
+                    reveals[i].classList.remove("active");
+                }
+            }
+            reveals = document.querySelectorAll("div.grad > div");
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
@@ -23,6 +34,7 @@
 
         function dig() {
             let h1s = document.querySelectorAll(".skew h1");
+            let h2s = document.querySelectorAll(".grad h2, .skew h2");
             for (let i of h1s) {
                 var windowHeight = window.innerHeight;
                 var elementTop = i.getBoundingClientRect().top;
@@ -30,7 +42,15 @@
 
                 if (elementTop < windowHeight - elementVisible) {
                     i.style.animation = "dig 1s forwards ease-out";
-                    console.log("dig");
+                }
+            }
+            for (let i of h2s) {
+                var windowHeight = window.innerHeight;
+                var elementTop = i.getBoundingClientRect().top;
+                var elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    i.style.animation = "dig 1s .25s forwards ease-out";
                 }
             }
         }
@@ -76,7 +96,45 @@
                 <h1 class="part2">Blender</h1>
             </div>
         </div>
-        
+
+        <div class="grad" style="display: grid; grid-template-columns: 1fr 1fr; margin: 2em; align-items: center; margin-top: -128px;">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <h2>Modeling</h2>
+                <img style="width: 80%;" src="./res/modeling.png" alt="">
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <h2>Shading</h2>
+                <img style="width: 80%;" src="./res/shading.png" alt="">
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <h2>Lighting</h2>
+                <img style="width: 80%;" src="./res/lighting.png" alt="">
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <h2>Animation</h2>
+                <img style="width: 80%;" src="./res/animation.png" alt="">
+            </div>
+        </div>
+
+        <div class="inter">
+            <div class="intertop"></div>
+            <div class="interbot part1"></div>
+            <div class="skew no-shadow"></div>
+        </div>
+
+        <div class="inter">
+            <div class="intertop part1"></div>
+            <div class="interbot"></div>
+            <div class="skew no-shadow">
+                <h1 class="part2" style="filter: hue-rotate(190deg)">Godot</h1>
+            </div>
+        </div>
+
+        <!--to do : 
+        godot section with screenshots
+        gallery section
+        contact section
+        -->
 
     </body>
 </html>
