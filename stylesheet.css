@@ -187,3 +187,12 @@ div.wt p.active, .grad > div.active {
 div img {
     border-radius: 32px;
 }
+
+.grad a img, .grad a video {
+    transition: 0.25s all;
+}
+
+.grad a img:hover, .grad a video:hover {
+    transition: 0.25s all;
+    box-shadow: 0 0 5px rgb(220, 240, 255), 0 0 5px rgb(220, 240, 255), 0 0 35px rgb(55, 0, 255);
+}
