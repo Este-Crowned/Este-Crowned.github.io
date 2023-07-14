@@ -55,13 +55,44 @@
             }
         }
 
+        function setMobileLayoutGrid() {
+            let divs = document.querySelectorAll("div.grad");
+            let Ps = document.querySelectorAll("p");
+            if (window.innerWidth/window.innerHeight <= 12/16) {
+                for (let i of divs) {
+                    i.setAttribute("style", "display: grid; grid-template-columns: 1fr; margin: 2em; align-items: center; margin-top: -600px; margin-bottom: -256px; position: relative; z-index: 50;");
+                }
+
+                for (let i of Ps) {
+                    if (!i.classList.contains("biggerT")) {
+                        i.classList.add("biggerT");
+                        i.style.fontSize = "30px";
+                    }
+                }
+            }
+            else {
+                for (let i of divs) {
+                    i.setAttribute("style", "display: grid; grid-template-columns: 1fr 1fr; margin: 2em; align-items: center; margin-top: -600px; margin-bottom: -256px; position: relative; z-index: 50;");
+                }
+
+                for (let i of Ps) {
+                    if (i.classList.contains("biggerT")) {
+                        i.classList.remove("biggerT");
+                        i.style.fontSize = "20px";
+                    }
+                }
+            }
+        }
+
         window.addEventListener("DOMContentLoaded", function() {
             reveal();
-            dig()
+            dig();
+            setMobileLayoutGrid();
         });
 
         window.addEventListener("scroll", reveal);
         window.addEventListener("scroll", dig);
+        window.addEventListener("resize", setMobileLayoutGrid);
     </script>
     <body>
        <div class="part1 intro wt">
