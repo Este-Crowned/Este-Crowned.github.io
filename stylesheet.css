@@ -155,6 +155,7 @@ div.skew > * {
     text-shadow: 0 0 0px #fff;
     margin: 0.5em;
     margin-top: 2em;
+    text-align: center;
 }
 
 @keyframes dig {
