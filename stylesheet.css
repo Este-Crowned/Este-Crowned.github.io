@@ -149,6 +149,20 @@ div.skew > * {
     text-align: center;
 }
 
+.skew h3, .grad h3 {
+    color: transparent;
+    background: linear-gradient(90deg, rgb(128, 29, 80) 0%, rgb(255, 167, 0) 100%);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    filter: brightness(1.5);
+    font-size: 35px;
+    text-shadow: 0 0 0px #fff;
+    margin: 0.5em;
+    margin-top: 2em;
+    text-align: center;
+}
+
 @keyframes dig {
     0% {text-shadow: 0 0 0px #fff;}
     100% {text-shadow: 0 0 7px #ffffff00;}
@@ -184,8 +198,12 @@ div.wt p.active, .grad > div.active {
     opacity: 1;
 }
 
-div img {
+div img:not(.socials) {
     border-radius: 32px;
+}
+
+div img.socials {
+    border-radius: 8px;
 }
 
 .grad a img, .grad a video {
