@@ -157,11 +157,15 @@ div.skew > * {
 div.intertop {
     height: 300px;
     z-index: 2;
+    margin-top: -1px;
+    padding-top: 1px;
 }
 
 div.interbot {
     height: 300px;
     z-index: 2;
+    margin-bottom: -1px;
+    padding-bottom: 1px;
 }
 
 .skills {
