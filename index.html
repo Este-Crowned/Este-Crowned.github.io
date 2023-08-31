@@ -1,284 +1,587 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-        <link rel="stylesheet" href="stylesheet.css">
-    </head>
-    <script type="text/javascript">
-        function reveal() {
-            let reveals = document.querySelectorAll("div.wt p")
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" href="stylesheet.css" />
+  </head>
+  <script type="text/javascript">
+    function reveal() {
+      let reveals = document.querySelectorAll("div.wt p");
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
 
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                } else {
-                    reveals[i].classList.remove("active");
-                }
-            }
-            reveals = document.querySelectorAll("div.grad > div");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        } else {
+          reveals[i].classList.remove("active");
+        }
+      }
+      reveals = document.querySelectorAll("div.grad > div");
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
 
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                } else {
-                    reveals[i].classList.remove("active");
-                }
-            }
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        } else {
+          reveals[i].classList.remove("active");
+        }
+      }
+    }
+
+    function dig() {
+      let h1s = document.querySelectorAll(".skew h1");
+      let h2s = document.querySelectorAll(".grad h2, .skew h2");
+      let h3s = document.querySelectorAll(".grad h3, .skew h3");
+      for (let i of h1s) {
+        var windowHeight = window.innerHeight;
+        var elementTop = i.getBoundingClientRect().top;
+        var elementVisible = 150;
+
+        if (elementTop < windowHeight - elementVisible) {
+          i.style.animation = "dig 1s forwards ease-out";
+        }
+      }
+      for (let i of h2s) {
+        var windowHeight = window.innerHeight;
+        var elementTop = i.getBoundingClientRect().top;
+        var elementVisible = 150;
+
+        if (elementTop < windowHeight - elementVisible) {
+          i.style.animation = "dig 1s .5s forwards ease-out";
+        }
+      }
+      for (let i of h3s) {
+        var windowHeight = window.innerHeight;
+        var elementTop = i.getBoundingClientRect().top;
+        var elementVisible = 150;
+
+        if (elementTop < windowHeight - elementVisible) {
+          i.style.animation = "dig 1s .5s forwards ease-out";
+        }
+      }
+    }
+
+    function setMobileLayoutGrid() {
+      let divs = document.querySelectorAll("div.grad");
+      let Ps = document.querySelectorAll("p");
+      if (window.innerWidth / window.innerHeight <= 12 / 16) {
+        document.body.style.marginLeft = "0";
+        document.body.style.marginRight = "0";
+        for (let i of divs) {
+          i.setAttribute(
+            "style",
+            "display: grid; grid-template-columns: 1fr; margin: 2em; align-items: center; margin-top: -600px; margin-bottom: -256px; position: relative; z-index: 50;"
+          );
         }
 
-        function dig() {
-            let h1s = document.querySelectorAll(".skew h1");
-            let h2s = document.querySelectorAll(".grad h2, .skew h2");
-            let h3s = document.querySelectorAll(".grad h3, .skew h3");
-            for (let i of h1s) {
-                var windowHeight = window.innerHeight;
-                var elementTop = i.getBoundingClientRect().top;
-                var elementVisible = 150;
-
-                if (elementTop < windowHeight - elementVisible) {
-                    i.style.animation = "dig 1s forwards ease-out";
-                }
-            }
-            for (let i of h2s) {
-                var windowHeight = window.innerHeight;
-                var elementTop = i.getBoundingClientRect().top;
-                var elementVisible = 150;
-
-                if (elementTop < windowHeight - elementVisible) {
-                    i.style.animation = "dig 1s .5s forwards ease-out";
-                }
-            }
-            for (let i of h3s) {
-                var windowHeight = window.innerHeight;
-                var elementTop = i.getBoundingClientRect().top;
-                var elementVisible = 150;
-
-                if (elementTop < windowHeight - elementVisible) {
-                    i.style.animation = "dig 1s .5s forwards ease-out";
-                }
-            }
+        for (let i of Ps) {
+          if (!i.classList.contains("biggerT")) {
+            i.classList.add("biggerT");
+            i.style.fontSize = "30px";
+          }
+        }
+      } else {
+        if (window.innerWidth > 1280) {
+          document.body.style.marginLeft = "10%";
+          document.body.style.marginRight = "10%";
+        } else {
+          document.body.style.marginLeft = "0";
+          document.body.style.marginRight = "0";
         }
 
-        function setMobileLayoutGrid() {
-            let divs = document.querySelectorAll("div.grad");
-            let Ps = document.querySelectorAll("p");
-            if (window.innerWidth/window.innerHeight <= 12/16) {
-                for (let i of divs) {
-                    i.setAttribute("style", "display: grid; grid-template-columns: 1fr; margin: 2em; align-items: center; margin-top: -600px; margin-bottom: -256px; position: relative; z-index: 50;");
-                }
-
-                for (let i of Ps) {
-                    if (!i.classList.contains("biggerT")) {
-                        i.classList.add("biggerT");
-                        i.style.fontSize = "30px";
-                    }
-                }
+        for (let i of divs) {
+          if (i.classList.contains("5c")) {
+            i.setAttribute(
+              "style",
+              "display: grid; grid-template-columns: repeat(5, 1fr); margin: 2em; align-items: center; justify-items: center; margin-top: -600px; margin-bottom: -256px; position: relative; z-index: 50;"
+            );
+          } else {
+            if (i.classList.contains("4c")) {
+              i.setAttribute(
+                "style",
+                "display: grid; grid-template-columns: repeat(4, 1fr); margin: 2em; align-items: center; justify-items: center; margin-top: -600px; margin-bottom: -256px; position: relative; z-index: 50;"
+              );
+            } else {
+              i.setAttribute(
+                "style",
+                "display: grid; grid-template-columns: 1fr 1fr; margin: 2em; align-items: center; justify-items: center; margin-top: -600px; margin-bottom: -256px; position: relative; z-index: 50;"
+              );
             }
-            else {
-                for (let i of divs) {
-                    if (i.classList.contains("3c")) {
-                        i.setAttribute("style", "display: grid; grid-template-columns: 1fr 1fr 1fr; margin: 2em; align-items: center; margin-top: -600px; margin-bottom: -256px; position: relative; z-index: 50;");
-                    }
-                    else {
-                        if (i.classList.contains("4c")) {
-                        i.setAttribute("style", "display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; margin: 2em; align-items: center; margin-top: -600px; margin-bottom: -256px; position: relative; z-index: 50;");
-                        } else {
-                            i.setAttribute("style", "display: grid; grid-template-columns: 1fr 1fr; margin: 2em; align-items: center; margin-top: -600px; margin-bottom: -256px; position: relative; z-index: 50;");
-                        }
-                    }
-                }
-
-                for (let i of Ps) {
-                    if (i.classList.contains("biggerT")) {
-                        i.classList.remove("biggerT");
-                        i.style.fontSize = "20px";
-                    }
-                }
-            }
+          }
         }
 
-        window.addEventListener("DOMContentLoaded", function() {
-            reveal();
-            dig();
-            setMobileLayoutGrid();
-        });
+        for (let i of Ps) {
+          if (i.classList.contains("biggerT")) {
+            i.classList.remove("biggerT");
+            i.style.fontSize = "20px";
+          }
+        }
+      }
+    }
 
-        window.addEventListener("scroll", reveal);
-        window.addEventListener("scroll", dig);
-        window.addEventListener("resize", setMobileLayoutGrid);
-    </script>
-    <body>
-       <div class="part1 intro wt">
-            <p>My name's <b>Este</b><br>and I'm a <b>3D illustration</b> passionate</p>
-       </div>
+    window.addEventListener("DOMContentLoaded", function () {
+      reveal();
+      dig();
+      setMobileLayoutGrid();
+    });
 
-        <div class="inter">
-            <div class="intertop part1"></div>
-            <div class="interbot part1"></div>
-            <div class="skew"></div>
-        </div>
+    window.addEventListener("scroll", reveal);
+    window.addEventListener("scroll", dig);
+    window.addEventListener("resize", setMobileLayoutGrid);
+  </script>
+  <body>
+    <div class="part1 intro wt">
+      <p>
+        My name's <b>Este</b><br />and I'm a <b>3D illustration</b> passionate
+      </p>
+    </div>
 
-       <div class="cv wt part1">
-        <h1>Passionate</h1>
-        <p>As a kid, I've always wanted to be able to create my own virtual worlds and rules to escape the world's boredom. As soon as I got my first computer, when I was 11, I spent most of my spare time learning 3D, game programming, photo and video editing. From then on, I kept practicing and learning aiming to improve my skills and setup a portfolio. Today I'm proud to say all this wasn't a waste of time, and I'm glad to be able to present you my work as a versatile digital artist !</p>
-       </div>
+    <div class="inter">
+      <div class="intertop part1"></div>
+      <div class="interbot part1"></div>
+      <div class="skew"></div>
+    </div>
 
-        <div class="inter">
-            <div class="intertop part1"></div>
-            <div class="interbot part2"></div>
-            <div class="skew"></div>
-        </div>
+    <div class="cv wt part1">
+      <h1>Passionate</h1>
+      <p>
+        As a kid, I've always wanted to be able to create my own virtual worlds
+        and rules to escape the world's boredom. As soon as I got my first
+        computer, when I was 11, I spent most of my spare time learning 3D, game
+        programming, photo and video editing. From then on, I kept practicing
+        and learning aiming to improve my skills and setup a portfolio. Today
+        I'm proud to say all this wasn't a waste of time, and I'm glad to be
+        able to present you my work as a versatile digital artist !
+      </p>
+    </div>
 
-       <div class="skills wt part2">
-        <h1>Skills</h1>
-       </div>
+    <div class="inter">
+      <div class="intertop part1"></div>
+      <div class="interbot part2"></div>
+      <div class="skew"></div>
+    </div>
 
-        <div class="inter">
-            <div class="intertop part2"></div>
-            <div class="interbot"></div>
-            <div class="skew no-shadow">
-                <h1 class="part2">Blender</h1>
-            </div>
-        </div>
+    <div class="skills wt part2">
+      <h1>Skills</h1>
+    </div>
 
-        <div class="grad" style="display: grid; grid-template-columns: 1fr 1fr; margin: 2em; align-items: center; margin-top: -600px; margin-bottom: -256px; position: relative; z-index: 50;">
-            <div style="display: flex; flex-direction: column; align-items: center;">
-                <h2>Modeling</h2>
-                <img style="width: 80%;" src="./res/modeling.png" alt="">
-            </div>
-            <div style="display: flex; flex-direction: column; align-items: center;">
-                <h2>Shading</h2>
-                <img style="width: 80%;" src="./res/shading.png" alt="">
-            </div>
-            <div style="display: flex; flex-direction: column; align-items: center;">
-                <h2>Lighting</h2>
-                <img style="width: 80%;" src="./res/lighting.png" alt="">
-            </div>
-            <div style="display: flex; flex-direction: column; align-items: center;">
-                <h2>Animation</h2>
-                <img style="width: 80%;" src="./res/animation.png" alt="">
-            </div>
-        </div>
+    <div class="inter">
+      <div class="intertop part2"></div>
+      <div class="interbot"></div>
+      <div class="skew no-shadow">
+        <h1 class="part2">Blender</h1>
+      </div>
+    </div>
 
-        <div class="inter">
-            <div class="intertop"></div>
-            <div class="interbot part1"></div>
-            <div class="skew no-shadow"></div>
-        </div>
+    <div
+      class="grad"
+      style="
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 2em;
+        align-items: center;
+        justify-items: center;
+        margin-top: -600px;
+        margin-bottom: -256px;
+        position: relative;
+        z-index: 50;
+      "
+    >
+      <div style="display: flex; flex-direction: column; align-items: center">
+        <h2>Modeling</h2>
+        <img style="width: 80%" src="./res/modeling.png" alt="" />
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center">
+        <h2>Shading</h2>
+        <img style="width: 80%" src="./res/shading.png" alt="" />
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center">
+        <h2>Lighting</h2>
+        <img style="width: 80%" src="./res/lighting.png" alt="" />
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center">
+        <h2>Animation</h2>
+        <img style="width: 80%" src="./res/animation.png" alt="" />
+      </div>
+    </div>
 
-        <div class="inter">
-            <div class="intertop part1"></div>
-            <div class="interbot"></div>
-            <div class="skew no-shadow">
-                <h1 class="part2" style="filter: hue-rotate(190deg);">Godot Engine</h1>
-            </div>
-        </div>
+    <div class="inter">
+      <div class="intertop"></div>
+      <div class="interbot part1"></div>
+      <div class="skew no-shadow"></div>
+    </div>
 
-        <div class="grad" style="display: grid; grid-template-columns: 1fr 1fr; margin: 2em; align-items: center; margin-top: -600px; margin-bottom: -256px; position: relative; z-index: 50;">
-            <div style="display: flex; flex-direction: column; align-items: center;">
-                <h2 style="filter: hue-rotate(190deg);">Godot Editor Screenshot</h2>
-                <img style="width: 80%;" src="./res/editor.png" alt="">
-            </div>
-            <div style="display: flex; flex-direction: column; align-items: center;">
-                <h2 style="filter: hue-rotate(190deg);">Hit Down Trailer</h2>
-                <a style="width: 80%;" target="_blank" href="https://crowned.itch.io/hit-down"><video width="100%" autoplay muted loop style="border-radius: 32px;" src="./res/hitdown_trailer.mp4"></video></a>
-            </div>
-        </div>
+    <div class="inter">
+      <div class="intertop part1"></div>
+      <div class="interbot"></div>
+      <div class="skew no-shadow">
+        <h1 class="part2" style="filter: hue-rotate(190deg)">Godot Engine</h1>
+      </div>
+    </div>
 
-        <div class="inter">
-            <div class="intertop"></div>
-            <div class="interbot part1"></div>
-            <div class="skew no-shadow">
-            </div>
-        </div>
+    <div
+      class="grad"
+      style="
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        margin: 2em;
+        align-items: center;
+        justify-items: center;
+        margin-top: -600px;
+        margin-bottom: -256px;
+        position: relative;
+        z-index: 50;
+      "
+    >
+      <h2 style="filter: hue-rotate(190deg)">Godot Editor Screenshot</h2>
+      <h2 style="filter: hue-rotate(190deg)">Hit Down Trailer</h2>
+      <img style="width: 80%" src="./res/editor.png" alt="" />
+      <a
+        style="width: 80%"
+        target="_blank"
+        href="https://crowned.itch.io/hit-down"
+        ><video
+          width="100%"
+          autoplay
+          muted
+          loop
+          style="border-radius: 32px"
+          src="./res/hitdown_trailer.mp4"
+        ></video
+      ></a>
+    </div>
 
-        <div class="inter">
-            <div class="intertop part1"></div>
-            <div class="interbot"></div>
-            <div class="skew no-shadow">
-                <h1 style="margin-bottom: 128px;" class="part2">Art Gallery</h1>
-            </div>
-        </div>
+    <div class="inter">
+      <div class="intertop"></div>
+      <div class="interbot part1"></div>
+      <div class="skew no-shadow"></div>
+    </div>
 
-        <div class="grad 3c" style="display: grid; grid-template-columns: 1fr 1fr 1fr; margin: 2em; align-items: center; margin-top: -600px; margin-bottom: -256px; position: relative; z-index: 50; justify-content: center;">
-            <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1.5em;">
-                <a style="width: 95%"  href="https://www.artstation.com/artwork/8wxXnx"><img  style="width: 100%" src="./res/sweetbutpsycho.jpg" alt=""></a>
-            </div>
-            <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1.5em;">
-                <a style="width: 95%"  href="https://www.artstation.com/artwork/JvZ5w0"><img  style="width: 100%" src="https://cdna.artstation.com/p/assets/images/images/064/490/568/medium/crowned-este-1688039628330.jpg?1688041671" alt=""></a>
-            </div>
-            <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1.5em;">
-                <a style="width: 95%"  href="https://www.artstation.com/artwork/04EkeV"><img style="width: 100%" src="https://cdna.artstation.com/p/assets/images/images/062/737/504/medium/crowned-este-1683814800551.jpg?1683822799" alt=""></a>
-            </div>
-            <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1.5em;">
-                <a style="width: 95%"  href="https://www.artstation.com/artwork/KeOrGB"><img  style="width: 100%" src="https://cdna.artstation.com/p/assets/images/images/060/454/914/medium/crowned-este-1678620834446.jpg?1678621123" alt=""></a>
-            </div>
-            <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1.5em;">
-                <a style="width: 95%"  href="https://www.artstation.com/artwork/39lEzJ"><img  style="width: 100%" src="https://cdna.artstation.com/p/assets/images/images/059/679/534/medium/crowned-este-1676919971991.jpg?1676920043" alt=""></a>
-            </div>
-            <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1.5em;">
-                <a style="width: 95%" href="https://www.artstation.com/artwork/elDJrw"><img  style="width: 100%" src="https://cdnb.artstation.com/p/assets/images/images/063/878/153/medium/crowned-este-1686592592205.jpg?1686593053" alt=""></a>
-            </div>
-            <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1.5em;">
-                <a style="width: 95%"  href="https://www.artstation.com/artwork/39vyeY"><img  style="width: 100%" src="https://cdna.artstation.com/p/assets/images/images/063/332/744/medium/crowned-este-1684703250332.jpg?1685298558" alt=""></a>
-            </div>
-            <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1.5em;">
-                <a style="width: 95%"  href="https://www.artstation.com/artwork/m8Ek1y"><img  style="width: 100%" src="https://cdna.artstation.com/p/assets/images/images/064/568/768/medium/crowned-este-1688231314814.jpg?1688231598" alt=""></a>
-            </div>
-            <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1.5em;">
-                <a style="width: 95%"  href="https://www.artstation.com/artwork/mzrkX1"><img  style="width: 100%" src="https://cdnb.artstation.com/p/assets/images/images/059/679/547/medium/crowned-este-1676745623507.jpg?1676920052" alt=""></a>
-            </div>
-            <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1.5em;">
-                <a style="width: 95%"  href="https://www.artstation.com/artwork/OGalny"><img  style="width: 100%" src="https://cdna.artstation.com/p/assets/images/images/063/645/804/medium/crowned-este-1685957309570.jpg?1686033629" alt=""></a>
-            </div>
-            <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1.5em;">
-                <a style="width: 95%"  href="https://www.artstation.com/artwork/XgOAd0"><img  style="width: 100%" src="https://cdna.artstation.com/p/assets/images/images/064/631/562/small/crowned-este-1688399842689.jpg?1688400571" alt=""></a>
-            </div>
-            <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1.5em;">
-                <a style="width: 95%"  href="https://www.artstation.com/artwork/zP0X9w"><img  style="width: 100%" src="https://cdnb.artstation.com/p/assets/images/images/064/760/173/medium/crowned-este-1688671112138.jpg?1688671460" alt=""></a>
-            </div>
-        </div>
+    <div class="inter">
+      <div class="intertop part1"></div>
+      <div class="interbot"></div>
+      <div class="skew no-shadow">
+        <h1 style="margin-bottom: 128px" class="part2">Art Gallery</h1>
+      </div>
+    </div>
 
-        <div class="inter">
-            <div class="intertop"></div>
-            <div class="interbot part1"></div>
-            <div class="skew no-shadow"></div>
-        </div>
+    <div
+      class="grad 5c"
+      style="
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: 2em;
+        align-items: center;
+        margin-top: -600px;
+        margin-bottom: -256px;
+        position: relative;
+        z-index: 50;
+        justify-content: center;
+      "
+    >
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 1.5em;
+        "
+      >
+        <a style="width: 95%" href="https://www.artstation.com/artwork/8wxXnx"
+          ><img style="width: 100%" src="./res/sweetbutpsycho.jpg" alt=""
+        /></a>
+      </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 1.5em;
+        "
+      >
+        <a style="width: 95%" href="https://www.artstation.com/artwork/JvZ5w0"
+          ><img
+            style="width: 100%"
+            src="https://cdna.artstation.com/p/assets/images/images/064/490/568/medium/crowned-este-1688039628330.jpg?1688041671"
+            alt=""
+        /></a>
+      </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 1.5em;
+        "
+      >
+        <a style="width: 95%" href="https://www.artstation.com/artwork/JvZ5w0"
+          ><img
+            style="width: 100%"
+            src="https://cdna.artstation.com/p/assets/images/images/065/924/248/large/crowned-este-1691571462914.jpg?1692147216"
+            alt=""
+        /></a>
+      </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 1.5em;
+        "
+      >
+        <a style="width: 95%" href="https://www.artstation.com/artwork/JvZ5w0"
+          ><img
+            style="width: 100%"
+            src="https://cdnb.artstation.com/p/assets/images/images/066/476/639/large/crowned-este-graal.jpg?1692979574"
+            alt=""
+        /></a>
+      </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 1.5em;
+        "
+      >
+        <a style="width: 95%" href="https://www.artstation.com/artwork/JvZ5w0"
+          ><img
+            style="width: 100%"
+            src="https://cdna.artstation.com/p/assets/images/images/066/697/066/large/crowned-este-1693521896106.jpg?1693524035"
+            alt=""
+        /></a>
+      </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 1.5em;
+        "
+      >
+        <a style="width: 95%" href="https://www.artstation.com/artwork/04EkeV"
+          ><img
+            style="width: 100%"
+            src="https://cdna.artstation.com/p/assets/images/images/062/737/504/medium/crowned-este-1683814800551.jpg?1683822799"
+            alt=""
+        /></a>
+      </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 1.5em;
+        "
+      >
+        <a style="width: 95%" href="https://www.artstation.com/artwork/KeOrGB"
+          ><img
+            style="width: 100%"
+            src="https://cdna.artstation.com/p/assets/images/images/060/454/914/medium/crowned-este-1678620834446.jpg?1678621123"
+            alt=""
+        /></a>
+      </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 1.5em;
+        "
+      >
+        <a style="width: 95%" href="https://www.artstation.com/artwork/39lEzJ"
+          ><img
+            style="width: 100%"
+            src="https://cdna.artstation.com/p/assets/images/images/059/679/534/medium/crowned-este-1676919971991.jpg?1676920043"
+            alt=""
+        /></a>
+      </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 1.5em;
+        "
+      >
+        <a style="width: 95%" href="https://www.artstation.com/artwork/elDJrw"
+          ><img
+            style="width: 100%"
+            src="https://cdnb.artstation.com/p/assets/images/images/063/878/153/medium/crowned-este-1686592592205.jpg?1686593053"
+            alt=""
+        /></a>
+      </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 1.5em;
+        "
+      >
+        <a style="width: 95%" href="https://www.artstation.com/artwork/39vyeY"
+          ><img
+            style="width: 100%"
+            src="https://cdna.artstation.com/p/assets/images/images/063/332/744/medium/crowned-este-1684703250332.jpg?1685298558"
+            alt=""
+        /></a>
+      </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 1.5em;
+        "
+      >
+        <a style="width: 95%" href="https://www.artstation.com/artwork/m8Ek1y"
+          ><img
+            style="width: 100%"
+            src="https://cdna.artstation.com/p/assets/images/images/064/568/768/medium/crowned-este-1688231314814.jpg?1688231598"
+            alt=""
+        /></a>
+      </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 1.5em;
+        "
+      >
+        <a style="width: 95%" href="https://www.artstation.com/artwork/mzrkX1"
+          ><img
+            style="width: 100%"
+            src="https://cdnb.artstation.com/p/assets/images/images/059/679/547/medium/crowned-este-1676745623507.jpg?1676920052"
+            alt=""
+        /></a>
+      </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 1.5em;
+        "
+      >
+        <a style="width: 95%" href="https://www.artstation.com/artwork/OGalny"
+          ><img
+            style="width: 100%"
+            src="https://cdna.artstation.com/p/assets/images/images/063/645/804/medium/crowned-este-1685957309570.jpg?1686033629"
+            alt=""
+        /></a>
+      </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 1.5em;
+        "
+      >
+        <a style="width: 95%" href="https://www.artstation.com/artwork/XgOAd0"
+          ><img
+            style="width: 100%"
+            src="https://cdna.artstation.com/p/assets/images/images/064/631/562/small/crowned-este-1688399842689.jpg?1688400571"
+            alt=""
+        /></a>
+      </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 1.5em;
+        "
+      >
+        <a style="width: 95%" href="https://www.artstation.com/artwork/zP0X9w"
+          ><img
+            style="width: 100%"
+            src="https://cdnb.artstation.com/p/assets/images/images/064/760/173/medium/crowned-este-1688671112138.jpg?1688671460"
+            alt=""
+        /></a>
+      </div>
+    </div>
 
-        <div class="inter">
-            <div class="intertop part1"></div>
-            <div class="interbot"></div>
-            <div class="skew no-shadow">
-                <h1 class="part2" style="margin-bottom: 128px; filter: hue-rotate(190deg);">Socials</h1>
-            </div>
-        </div>
+    <div class="inter">
+      <div class="intertop"></div>
+      <div class="interbot part1"></div>
+      <div class="skew no-shadow"></div>
+    </div>
 
-        <div class="grad 4c" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; margin: 2em; align-items: center; margin-top: -600px; position: relative; z-index: 50; margin-bottom: -256px;">
-            <div style="display: flex; flex-direction: column; align-items: center;">
-                <h3>Instagram</h3>
-                <a style="width: 40%" href="https://www.instagram.com/crowned.artist/"><img class="socials" style="width: 100%;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt=""></a>
-            </div>
-            <div style="display: flex; flex-direction: column; align-items: center;">
-                <h3 style="filter: hue-rotate(190deg);">LinkedIn</h3>
-                <a style="width: 40%" href="https://www.linkedin.com/in/este-suzenne/"><img class="socials" style="width: 100%;" src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt=""></a>
-            </div>
-            <div style="display: flex; flex-direction: column; align-items: center;">
-                <h3>Artstation</h3>
-                <a style="width: 40%" href="https://www.artstation.com/crowned_artist"><img class="socials" style="width: 100%;" src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/27_Artstation_logo_logos-512.png" alt=""></a>
-            </div>
-            <div style="display: flex; flex-direction: column; align-items: center;">
-                <h3 style="filter: hue-rotate(190deg);">Discord</h3>
-                <a style="width: 40%" href="https://discord.gg/7FCbtQb8Nz"><img class="socials" style="width: 100%;" src="https://japaniste.fr/wp-content/uploads/2019/12/discord-logo-png-transparent.png" alt=""></a>
-            </div>
-        </div>
+    <div class="inter">
+      <div class="intertop part1"></div>
+      <div class="interbot"></div>
+      <div class="skew no-shadow">
+        <h1
+          class="part2"
+          style="margin-bottom: 128px; filter: hue-rotate(190deg)"
+        >
+          Socials
+        </h1>
+      </div>
+    </div>
 
-        <div style="height: 384px;"></div>
+    <div
+      class="grad 4c"
+      style="
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin: 2em;
+        align-items: center;
+        margin-top: -600px;
+        position: relative;
+        z-index: 50;
+        margin-bottom: -256px;
+      "
+    >
+      <div style="display: flex; flex-direction: column; align-items: center">
+        <h3>Instagram</h3>
+        <a style="width: 40%" href="https://www.instagram.com/crowned.artist/"
+          ><img
+            class="socials"
+            style="width: 100%"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png"
+            alt=""
+        /></a>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center">
+        <h3 style="filter: hue-rotate(190deg)">LinkedIn</h3>
+        <a style="width: 40%" href="https://www.linkedin.com/in/este-suzenne/"
+          ><img
+            class="socials"
+            style="width: 100%"
+            src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+            alt=""
+        /></a>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center">
+        <h3>Artstation</h3>
+        <a style="width: 40%" href="https://www.artstation.com/crowned_artist"
+          ><img
+            class="socials"
+            style="width: 100%"
+            src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/27_Artstation_logo_logos-512.png"
+            alt=""
+        /></a>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center">
+        <h3 style="filter: hue-rotate(190deg)">Discord</h3>
+        <a style="width: 40%" href="https://discord.gg/7FCbtQb8Nz"
+          ><img
+            class="socials"
+            style="width: 100%"
+            src="https://japaniste.fr/wp-content/uploads/2019/12/discord-logo-png-transparent.png"
+            alt=""
+        /></a>
+      </div>
+    </div>
 
-    </body>
+    <div style="height: 384px"></div>
+  </body>
 </html>
