@@ -188,6 +188,8 @@ div.wt p, .grad > div {
     opacity: 0;
     transition: 1s all ease;
 }
+
+
 div.wt p.active, .grad > div.active {
     transform: translateY(0);
     opacity: 1;
