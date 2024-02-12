@@ -2,6 +2,95 @@
     margin: 0;
 }
 
+nav {
+    min-width: 100%;
+    display: flex;
+    position: fixed;
+    top: 0;
+    transition: all 0.5s;
+    z-index: 1024;
+}
+
+nav:not(.vertical) {
+    flex-direction: row;
+    max-height: 64px;
+}
+
+nav.vertical {
+    flex-direction: column;
+}
+
+nav span {
+    padding: 0;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+    background-color: rgba(255, 255, 255, 0.95);
+    transition: all 0.2s;
+}
+
+
+nav a {
+    text-decoration: none;
+    color: rgb(0, 158, 225);
+    font-weight: bolder;
+    font-size: larger;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+nav.vertical a {
+    font-size: 2em;
+    text-align: left;
+}
+
+nav ul {
+    display: grid;
+    padding: 0;
+    transition: all 0.2s;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.95);
+    margin: 0 auto 0 0;
+    width: 100%;
+}
+
+nav:not(.vertical) ul {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+nav.vertical ul {
+    grid-template-rows: auto;
+    padding-bottom: 3em;
+}
+
+nav li {
+    list-style: none;
+    margin: auto;
+    padding: 0 1em 0 1em;
+}
+
+nav.vertical li {
+    margin-bottom: 0.75em;
+    margin-top: 0.75em;
+}
+
+nav li:hover a {
+    text-shadow: 0px 0px 25px rgb(0, 247, 255);
+    transition: all 0.2s;
+}
+
+
+nav.hidden ul {
+    overflow: hidden;
+    width: 0;
+    transition: all 0.2s;
+    background-color: transparent;
+}
+
+nav.hidden span {
+    background-color: transparent;
+    transition: all 0.2s;
+}
+
 html {
     animation: focus 2s cubic-bezier(0.16, 1, 0.3, 1) 0s 1 normal forwards;
     max-width: 1920px;
@@ -210,4 +299,13 @@ div img.socials {
 .grad a img:hover, .grad a video:hover {
     transition: 0.25s all;
     box-shadow: 0 0 5px rgb(220, 240, 255), 0 0 5px rgb(220, 240, 255), 0 0 35px rgb(55, 0, 255);
+}
+
+footer {
+    margin-top: 30em;
+}
+
+footer a {
+    color:#ff8725;
+    text-decoration: none;
 }

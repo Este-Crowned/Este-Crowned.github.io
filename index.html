@@ -78,6 +78,8 @@
 					);
 				}
 
+				document.querySelector('nav').classList.add("vertical");
+
 				for (let i of Ps) {
 					if (!i.classList.contains("biggerT")) {
 						i.classList.add("biggerT");
@@ -114,6 +116,8 @@
 					}
 				}
 
+				document.querySelector('nav').classList.remove("vertical");
+
 				for (let i of Ps) {
 					if (i.classList.contains("biggerT")) {
 						i.classList.remove("biggerT");
@@ -134,7 +138,17 @@
 		window.addEventListener("resize", setMobileLayoutGrid);
 	</script>
 	<body>
-		<div class="part1 intro wt">
+		<nav>
+			<span onclick="document.querySelector('nav').classList.toggle('hidden')"><img style="max-width: 4em;" src="res/menu.png" alt=""></span>
+			<ul>
+				<li><a href="#whoami">Who am I</a></li>
+				<li><a href="#3d">3D Skills</a></li>
+				<li><a href="#gamedev">Game Dev.</a></li>
+				<li><a href="#gallery">Art Gallery</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</nav>
+		<div class="part1 intro wt" id="whoami">
 			<p>
 				My name's <b>Este</b>,<br> I'm a <b>3D illustration</b> passionate <br>and self-taught <b>Game developer</b></p>
 		</div>
@@ -172,7 +186,7 @@
 			<div class="intertop part2"></div>
 			<div class="interbot"></div>
 			<div class="skew">
-				<h1 class="part2">3D Generalist</h1>
+				<h1 id="3d" class="part2">3D Generalist</h1>
 			</div>
 		</div>
 
@@ -218,7 +232,7 @@
 			<div class="intertop part1"></div>
 			<div class="interbot"></div>
 			<div class="skew">
-				<h1 class="part2" style="filter: hue-rotate(190deg)">
+				<h1 id="gamedev" class="part2" style="filter: hue-rotate(190deg)">
 					Game Dev.
 				</h1>
 			</div>
@@ -291,7 +305,7 @@
 			<div class="intertop part1"></div>
 			<div class="interbot"></div>
 			<div class="skew">
-				<h1 style="margin-bottom: 128px" class="part2">Art Gallery</h1>
+				<h1 id="gallery" style="margin-bottom: 128px" class="part2">Art Gallery</h1>
 			</div>
 		</div>
 
@@ -543,7 +557,7 @@
 			<div class="intertop part1"></div>
 			<div class="interbot"></div>
 			<div class="skew">
-				<h1
+				<h1 id="contact"
 					class="part2"
 					style="margin-bottom: 128px; filter: hue-rotate(190deg)"
 				>
@@ -606,6 +620,10 @@
 				/></a>
 			</div>
 		</div>
+
+		<footer class="grad">
+			<h3>&copy;Este Suzenne <a href="mailto:e.suzenne@gmail.com">e.suzenne@gmail.com</a></h3>
+		</footer>
 
 		<div style="height: 384px"></div>
 	</body>
