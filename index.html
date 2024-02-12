@@ -72,10 +72,18 @@
 				document.body.style.marginLeft = "0";
 				document.body.style.marginRight = "0";
 				for (let i of divs) {
-					i.setAttribute(
+					if (i.classList.contains("4c") || i.classList.contains("5c")) {
+						i.setAttribute(
+						"style",
+						"display: grid; grid-template-columns: 1fr 1fr; margin: 2em; align-items: center; margin-top: -600px; margin-bottom: -256px; position: relative; z-index: 50;"
+						);
+					}
+					else {
+						i.setAttribute(
 						"style",
 						"display: grid; grid-template-columns: 1fr; margin: 2em; align-items: center; margin-top: -600px; margin-bottom: -256px; position: relative; z-index: 50;"
-					);
+						);
+					}
 				}
 
 				document.querySelector('nav').classList.add("vertical");
