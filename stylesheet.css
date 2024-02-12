@@ -90,8 +90,13 @@ nav.hidden ul {
 }
 
 nav.hidden span {
-    background-color: transparent;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
     transition: all 0.2s;
+}
+
+nav.hidden.vertical span {
+    max-width: 128px;
 }
 
 html {
