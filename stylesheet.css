@@ -53,6 +53,7 @@ nav ul {
     width: 100%;
 }
 
+
 nav:not(.vertical) ul {
     grid-template-columns: repeat(5, 1fr);
 }
@@ -91,6 +92,9 @@ nav.hidden ul {
 
 nav.hidden span {
     border-radius: 15px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0.25em;
     background-color: rgba(255, 255, 255, 0.8);
     transition: all 0.2s;
 }

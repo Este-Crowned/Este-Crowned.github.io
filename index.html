@@ -98,9 +98,11 @@
 				if (window.innerWidth > 1280) {
 					document.body.style.marginLeft = "10%";
 					document.body.style.marginRight = "10%";
+					document.querySelector("nav ul").style.maxWidth = "80%";
 				} else {
 					document.body.style.marginLeft = "0";
 					document.body.style.marginRight = "0";
+					document.querySelector("nav ul").style.maxWidth = "100%";
 				}
 
 				for (let i of divs) {
