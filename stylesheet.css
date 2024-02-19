@@ -95,7 +95,9 @@ nav.hidden span {
     padding-left: 0;
     padding-right: 0;
     margin-left: 0.25em;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.0);
+    box-sizing: border-box;
+    box-shadow:inset 0px 0px 0px 3px rgba(255, 255, 255, 0.95);
     transition: all 0.2s;
 }
 
