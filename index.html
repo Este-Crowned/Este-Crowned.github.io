@@ -96,9 +96,9 @@
 				}
 			} else {
 				if (window.innerWidth > 1280) {
-					document.body.style.marginLeft = "10%";
-					document.body.style.marginRight = "10%";
-					document.querySelector("nav ul").style.maxWidth = window.innerWidth-0.2*window.innerWidth-72 + "px";
+					// document.body.style.marginLeft = "10%";
+					// document.body.style.marginRight = "10%";
+					// document.querySelector("nav ul").style.maxWidth = window.innerWidth-0.2*window.innerWidth-72 + "px";
 				} else {
 					document.body.style.marginLeft = "0";
 					document.body.style.marginRight = "0";
@@ -109,13 +109,13 @@
 					if (i.classList.contains("5c")) {
 						i.setAttribute(
 							"style",
-							"display: grid; grid-template-columns: repeat(5, 1fr); margin: 2em; align-items: center; justify-items: center; margin-top: -600px; margin-bottom: -256px; position: relative; z-index: 50;"
+							"display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); margin: 2em; align-items: center; justify-items: center; margin-top: -600px; margin-bottom: -256px; position: relative; z-index: 50;"
 						);
 					} else {
 						if (i.classList.contains("4c")) {
 							i.setAttribute(
 								"style",
-								"display: grid; grid-template-columns: repeat(4, 1fr); margin: 2em; align-items: center; justify-items: center; margin-top: -600px; margin-bottom: -256px; position: relative; z-index: 50;"
+								"display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); margin: 2em; align-items: center; justify-items: center; margin-top: -600px; margin-bottom: -256px; position: relative; z-index: 50;"
 							);
 						} else {
 							i.setAttribute(
@@ -580,7 +580,7 @@
 			class="grad 4c"
 			style="
 				display: grid;
-				grid-template-columns: 1fr 1fr 1fr 1fr;
+				grid-template-columns: repeat(4, minmax(0,1fr));
 				margin: 2em;
 				align-items: center;
 				margin-top: -600px;
